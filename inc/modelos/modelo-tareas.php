@@ -1,10 +1,10 @@
 <?php
 
-$accion = $_POST['accion'];
-$id_proyecto = (int) $_POST['id_proyecto'];
-$tarea = $_POST['tarea'];
-$estado = $_POST['estado'];
-$id_tarea = (int) $_POST['id'];
+$accion = isset($_POST['accion']) ? $_POST['accion'] : false;
+$id_proyecto = isset($_POST['id_proyecto']) ? (int) $_POST['id_proyecto'] : false;
+$tarea = isset($_POST['tarea']) ? $_POST['tarea'] : false;
+$estado = isset($_POST['estado']) ? $_POST['estado'] : false;
+$id_tarea = isset($_POST['id']) ? (int) $_POST['id'] : false;
 
 if ($accion === 'crear') {
     // Importar la conexion

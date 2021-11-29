@@ -4,9 +4,7 @@
     include 'inc/templates/header.php';
     include 'inc/templates/barra.php';
 
-    if (isset($_GET['id_proyecto'])) {
-        $id_proyecto = $_GET['id_proyecto'];
-    }
+    $id_proyecto = isset($_GET['id_proyecto']) ? $_GET['id_proyecto'] : false; 
 ?>
 
 <div class="contenedor">
@@ -40,7 +38,7 @@
             <?php
                 else:
                     // Si no hay proyectos seleccionados
-                    echo "<p>Selecciona un proyecto a la izquierda</p>";
+                    echo "<p style='text-align: center;'>Selecciona un proyecto a la izquierda</p>";
                 endif;
             ?>
         
@@ -53,7 +51,7 @@
                 <?php
                     // Obtiene las tareas  del proyecto actual
                     $tareas = obtenerTareasProyecto($id_proyecto);
-                    if ($tareas->num_rows > 0) {
+                    if (isset($tareas->num_rows) ? $tareas->num_rows : false > 0) {
                         // Si hay tareas
                         foreach($tareas as $tarea): ?>
                             <li id="tarea: <?php echo $tarea['id'] ?>" class="tarea">

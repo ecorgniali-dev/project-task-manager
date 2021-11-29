@@ -13,7 +13,10 @@ function eventListeners() {
     document.querySelector('.crear-proyecto a').addEventListener('click', nuevoProyecto);
 
     // Boton para nueva tarea
-    document.querySelector('.nueva-tarea').addEventListener('click', agregarTarea);
+    let nueva_tarea = document.querySelector('.nueva-tarea');
+    if (nueva_tarea) {
+        nueva_tarea.addEventListener('click', agregarTarea);
+    }
 
     // Botones para las acciones de las tareas
     document.querySelector('.listado-pendientes').addEventListener('click', accionesTareas);
